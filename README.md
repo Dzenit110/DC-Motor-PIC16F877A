@@ -100,50 +100,37 @@ We control the intensity of an LED light using PWM (Pulse Width Modulation) and 
 
 ## User Interface Examples
 
+<p align="center">
+  <img width="779" alt="dc1" src="https://github.com/user-attachments/assets/f192db61-7f81-4c43-a80c-6a8e67c69822">
+  <br>
+  Figure 1 DC Motor Control (Left Rotate with Button) (Flowcode)
+  <br><br>
+  
+  <img width="794" alt="dc2" src="https://github.com/user-attachments/assets/6a8ddb41-59a2-4826-80a0-e964029c908c">
+  <br>
+  Figure 2 DC Motor Control (Right Rotate with Button) (Flowcode)
+  <br><br>
+  
+  <img width="631" alt="dcaut1" src="https://github.com/user-attachments/assets/77686b36-3397-4867-9a01-c2f57da4aa72">
+  <br>
+  Figure 3 Automatic rotation to the left and right of the DC Motor (Flowcode)
+  <br><br>
+  
+  <img width="632" alt="dcaut2" src="https://github.com/user-attachments/assets/aae64f89-184e-4508-9972-6fb868a0cccf">
+  <br>
+  Figure 4 Automatic rotation to the left and right of the DC Motor (Flowcode)
+  <br><br>
+  
+  <img width="828" alt="pwmautdc" src="https://github.com/user-attachments/assets/c49776dc-9344-4552-8e62-deba8dc50653">
+  <br>
+  Figure 5 DC motor using Pulse Width Modulation (PWM) on the PIC16F877A microcontroller (Flowcode)
+  <br><br>
+  
+  <img width="842" alt="pwmledpoten22" src="https://github.com/user-attachments/assets/0e8edabe-dec6-4e39-be6f-57e06d22283c">
+  <br>
+  Figure 6 Intensity of the LED light using the PWM module and potentiometers (Flowcode)
+</p>
 
-<img width="779" alt="dc1" src="https://github.com/user-attachments/assets/f192db61-7f81-4c43-a80c-6a8e67c69822">
-<br>
-Figure 1 DC Motor Control (Left Rotate with Button) (Flowcode)
-<br><br>
-
-
-<img width="794" alt="dc2" src="https://github.com/user-attachments/assets/6a8ddb41-59a2-4826-80a0-e964029c908c">
-
-<br>
-
-Figure 2 DC Motor Control (Right Rotate with Button) (Flowcode)
-
-<br><br>
-
-<img width="631" alt="dcaut1" src="https://github.com/user-attachments/assets/77686b36-3397-4867-9a01-c2f57da4aa72">
-
-<br>
-
-Figure 3 Automatic rotation to the left and right of the DC Motor (Flowcode)
-
-<br><br>
-
-<img width="632" alt="dcaut2" src="https://github.com/user-attachments/assets/aae64f89-184e-4508-9972-6fb868a0cccf">
-
-<br>
-
-Figure 4 Automatic rotation to the left and right of the DC Motor (Flowcode)
-
-<br><br>
-
-<img width="828" alt="pwmautdc" src="https://github.com/user-attachments/assets/c49776dc-9344-4552-8e62-deba8dc50653">
-
-<br>
-
-Figure 5 DC motor using Pulse Width Modulation (PWM) on the PIC16F877A microcontroller (Flowcode)
-
-<br><br>
-
-<img width="842" alt="pwmledpoten22" src="https://github.com/user-attachments/assets/0e8edabe-dec6-4e39-be6f-57e06d22283c">
-
-<br>
-
-Figure 6  Intensity of the LED light using the PWM module and potentiometers (Flowcode)
 
 <br>
 
