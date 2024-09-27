@@ -1,0 +1,26 @@
+// SourceBoost Linker Call Tree Dump
+
+_startup:"NoSourceFile",line = 0
+{  main:"D:\Skola\Mirkoracunari\DC motor sa automatski lijevo i desno\dc_automatski_lijevo_desno.c",line = 117
+  {    delay_s:"NoSourceFile",line = 0
+    {      delay_ms:"NoSourceFile",line = 0
+      {      }      delay_ms:"NoSourceFile",line = 0
+      {      }      delay_ms:"NoSourceFile",line = 0
+      {      }      delay_ms:"NoSourceFile",line = 0
+      {      }    }    delay_s:"NoSourceFile",line = 0
+    {      delay_ms:"NoSourceFile",line = 0
+      {      }      delay_ms:"NoSourceFile",line = 0
+      {      }      delay_ms:"NoSourceFile",line = 0
+      {      }      delay_ms:"NoSourceFile",line = 0
+      {      }    }    delay_s:"NoSourceFile",line = 0
+    {      delay_ms:"NoSourceFile",line = 0
+      {      }      delay_ms:"NoSourceFile",line = 0
+      {      }      delay_ms:"NoSourceFile",line = 0
+      {      }      delay_ms:"NoSourceFile",line = 0
+      {      }    }    delay_s:"NoSourceFile",line = 0
+    {      delay_ms:"NoSourceFile",line = 0
+      {      }      delay_ms:"NoSourceFile",line = 0
+      {      }      delay_ms:"NoSourceFile",line = 0
+      {      }      delay_ms:"NoSourceFile",line = 0
+      {      }    }  }}interrupt:"D:\Skola\Mirkoracunari\DC motor sa automatski lijevo i desno\dc_automatski_lijevo_desno.c",line = 218
+{}
