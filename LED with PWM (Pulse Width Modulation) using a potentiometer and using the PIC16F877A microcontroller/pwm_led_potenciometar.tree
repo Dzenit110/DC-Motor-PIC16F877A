@@ -1,0 +1,18 @@
+// SourceBoost Linker Call Tree Dump
+
+_startup:"NoSourceFile",line = 0
+{  main:"D:\Skola\Mirkoracunari\LED, PWM i potenciometar 500 ms\pwm_led_potenciometar.c",line = 526
+  {    FCD_PWM0_Enable:"D:\Skola\Mirkoracunari\LED, PWM i potenciometar 500 ms\pwm_led_potenciometar.c",line = 326
+    {      FC_CAL_PWM_Change_Period_1:"C:\Program Files (x86)\Flowcode\v5\CAL\PIC\PIC_CAL_PWM.c",line = 372
+      {      }      FC_CAL_PWM_Enable_Channel_1:"C:\Program Files (x86)\Flowcode\v5\CAL\PIC\PIC_CAL_PWM.c",line = 50
+      {      }    }    FCD_PWM0_SetDutyCycle:"D:\Skola\Mirkoracunari\LED, PWM i potenciometar 500 ms\pwm_led_potenciometar.c",line = 341
+    {      FC_CAL_PWM_Set_Duty_8Bit_1:"C:\Program Files (x86)\Flowcode\v5\CAL\PIC\PIC_CAL_PWM.c",line = 328
+      {      }    }    delay_ms:"NoSourceFile",line = 0
+    {    }    delay_ms:"NoSourceFile",line = 0
+    {    }    FCD_ADC0_ReadAsByte:"D:\Skola\Mirkoracunari\LED, PWM i potenciometar 500 ms\pwm_led_potenciometar.c",line = 374
+    {      FC_CAL_Enable_ADC:"C:\Program Files (x86)\Flowcode\v5\CAL\PIC\PIC_CAL_ADC.c",line = 3928
+      {        delay_us:"NoSourceFile",line = 0
+        {        }      }      FC_CAL_Sample_ADC:"C:\Program Files (x86)\Flowcode\v5\CAL\PIC\PIC_CAL_ADC.c",line = 4020
+      {      }      FC_CAL_Disable_ADC:"C:\Program Files (x86)\Flowcode\v5\CAL\PIC\PIC_CAL_ADC.c",line = 4038
+      {      }    }  }}interrupt:"D:\Skola\Mirkoracunari\LED, PWM i potenciometar 500 ms\pwm_led_potenciometar.c",line = 569
+{}
