@@ -1,0 +1,544 @@
+;/////////////////////////////////////////////////////////////////////////////////
+;// Code Generator: BoostC Compiler - http://www.sourceboost.com
+;// Version       : 7.03
+;// License Type  : Pro License
+;// Limitations   : PIC12,PIC16 max code size:Unlimited, max RAM banks:Unlimited
+;/////////////////////////////////////////////////////////////////////////////////
+
+	ORG 0x00000000
+0000  2972  	GOTO	_startup
+	ORG 0x00000004
+0004  00FF  	MOVWF Int1Context
+0005  0E03  	SWAPF STATUS, W
+0006  1283  	BCF STATUS, RP0
+0007  1303  	BCF STATUS, RP1
+0008  00B4  	MOVWF Int1BContext
+0009  0E0A  	SWAPF PCLATH, W
+000A  00B5  	MOVWF Int1BContext+D'1'
+000B  0E04  	SWAPF FSR, W
+000C  00B6  	MOVWF Int1BContext+D'2'
+000D  118A  	BCF PCLATH,3
+000E  120A  	BCF PCLATH,4
+000F  299A  	GOTO	interrupt
+	ORG 0x00000010
+0010        delay_us_00000
+0010        ; { delay_us ; function begin
+0010  3001  	MOVLW 0x01
+0011  07CD  	ADDWF delay_us_00000_arg_del, F
+0012  0CCD  	RRF delay_us_00000_arg_del, F
+0013  30FF  	MOVLW 0xFF
+0014  05CD  	ANDWF delay_us_00000_arg_del, F
+0015        label1
+0015  0000  	NOP
+0016  0000  	NOP
+0017  0BCD  	DECFSZ delay_us_00000_arg_del, F
+0018  2815  	GOTO	label1
+0019  0008  	RETURN
+001A        ; } delay_us function end
+
+	ORG 0x0000001A
+001A        delay_ms_00000
+001A        ; { delay_ms ; function begin
+001A  08C8  	MOVF delay_ms_00000_arg_del, F
+001B  1D03  	BTFSS STATUS,Z
+001C  281E  	GOTO	label2
+001D  0008  	RETURN
+001E        label2
+001E  30F9  	MOVLW 0xF9
+001F        label3
+001F  0000  	NOP
+0020  0000  	NOP
+0021  0000  	NOP
+0022  0000  	NOP
+0023  0000  	NOP
+0024  0000  	NOP
+0025  3EFF  	ADDLW 0xFF
+0026  1D03  	BTFSS STATUS,Z
+0027  281F  	GOTO	label3
+0028  0000  	NOP
+0029  0000  	NOP
+002A  0000  	NOP
+002B  0000  	NOP
+002C  0000  	NOP
+002D  0000  	NOP
+002E  0000  	NOP
+002F  0BC8  	DECFSZ delay_ms_00000_arg_del, F
+0030  281E  	GOTO	label2
+0031  0008  	RETURN
+0032        ; } delay_ms function end
+
+	ORG 0x00000032
+0032        FC_CAL_Sam_0005D
+0032        ; { FC_CAL_Sample_ADC ; function begin
+0032        label4
+0032  191F  	BTFSC gbl_adcon0,2
+0033  2832  	GOTO	label4
+0034  08C9  	MOVF FC_CAL_Sam_0005D_arg_Sample_Mode, F
+0035  1903  	BTFSC STATUS,Z
+0036  284B  	GOTO	label5
+0037  081E  	MOVF gbl_adresh, W
+0038  00CA  	MOVWF FC_CAL_Sam_0005D_1_iRetVal
+0039  01CB  	CLRF FC_CAL_Sam_0005D_1_iRetVal+D'1'
+003A  0DCA  	RLF FC_CAL_Sam_0005D_1_iRetVal, F
+003B  0DCB  	RLF FC_CAL_Sam_0005D_1_iRetVal+D'1', F
+003C  0DCA  	RLF FC_CAL_Sam_0005D_1_iRetVal, F
+003D  0DCB  	RLF FC_CAL_Sam_0005D_1_iRetVal+D'1', F
+003E  30FC  	MOVLW 0xFC
+003F  05CA  	ANDWF FC_CAL_Sam_0005D_1_iRetVal, F
+0040  1683  	BSF STATUS, RP0
+0041  0C1E  	RRF gbl_adresl, W
+0042  1283  	BCF STATUS, RP0
+0043  00CC  	MOVWF CompTempVar2214
+0044  0CCC  	RRF CompTempVar2214, F
+0045  0ECC  	SWAPF CompTempVar2214, F
+0046  3003  	MOVLW 0x03
+0047  054C  	ANDWF CompTempVar2214, W
+0048  04CA  	IORWF FC_CAL_Sam_0005D_1_iRetVal, F
+0049  08CB  	MOVF FC_CAL_Sam_0005D_1_iRetVal+D'1', F
+004A  284E  	GOTO	label6
+004B        label5
+004B  081E  	MOVF gbl_adresh, W
+004C  00CA  	MOVWF FC_CAL_Sam_0005D_1_iRetVal
+004D  01CB  	CLRF FC_CAL_Sam_0005D_1_iRetVal+D'1'
+004E        label6
+004E  3004  	MOVLW 0x04
+004F  041F  	IORWF gbl_adcon0, W
+0050  009F  	MOVWF gbl_adcon0
+0051  084A  	MOVF FC_CAL_Sam_0005D_1_iRetVal, W
+0052  00CC  	MOVWF CompTempVarRet2211
+0053  084B  	MOVF FC_CAL_Sam_0005D_1_iRetVal+D'1', W
+0054  00CD  	MOVWF CompTempVarRet2211+D'1'
+0055  0008  	RETURN
+0056        ; } FC_CAL_Sample_ADC function end
+
+	ORG 0x00000056
+0056        FC_CAL_PWM_0006E
+0056        ; { FC_CAL_PWM_Change_Period_2 ; function begin
+0056  0848  	MOVF FC_CAL_PWM_0006E_arg_period, W
+0057  1683  	BSF STATUS, RP0
+0058  0092  	MOVWF gbl_pr2
+0059  3001  	MOVLW 0x01
+005A  1283  	BCF STATUS, RP0
+005B  0649  	XORWF FC_CAL_PWM_0006E_arg_prescaler, W
+005C  1903  	BTFSC STATUS,Z
+005D  084A  	MOVF FC_CAL_PWM_0006E_arg_prescaler+D'1', W
+005E  1903  	BTFSC STATUS,Z
+005F  286D  	GOTO	label7
+0060  3004  	MOVLW 0x04
+0061  0649  	XORWF FC_CAL_PWM_0006E_arg_prescaler, W
+0062  1903  	BTFSC STATUS,Z
+0063  084A  	MOVF FC_CAL_PWM_0006E_arg_prescaler+D'1', W
+0064  1903  	BTFSC STATUS,Z
+0065  2870  	GOTO	label8
+0066  3010  	MOVLW 0x10
+0067  0649  	XORWF FC_CAL_PWM_0006E_arg_prescaler, W
+0068  1903  	BTFSC STATUS,Z
+0069  084A  	MOVF FC_CAL_PWM_0006E_arg_prescaler+D'1', W
+006A  1903  	BTFSC STATUS,Z
+006B  2873  	GOTO	label9
+006C  0008  	RETURN
+006D        label7
+006D  3004  	MOVLW 0x04
+006E  0092  	MOVWF gbl_t2con
+006F  0008  	RETURN
+0070        label8
+0070  3005  	MOVLW 0x05
+0071  0092  	MOVWF gbl_t2con
+0072  0008  	RETURN
+0073        label9
+0073  3006  	MOVLW 0x06
+0074  0092  	MOVWF gbl_t2con
+0075  0008  	RETURN
+0076        ; } FC_CAL_PWM_Change_Period_2 function end
+
+	ORG 0x00000076
+0076        FC_CAL_PWM_0006D
+0076        ; { FC_CAL_PWM_Set_Duty_8Bit_2 ; function begin
+0076  0849  	MOVF FC_CAL_PWM_0006D_arg_duty, W
+0077  009B  	MOVWF gbl_ccpr2l
+0078  0008  	RETURN
+0079        ; } FC_CAL_PWM_Set_Duty_8Bit_2 function end
+
+	ORG 0x00000079
+0079        FC_CAL_PWM_0006B
+0079        ; { FC_CAL_PWM_Enable_Channel_2 ; function begin
+0079  1683  	BSF STATUS, RP0
+007A  1303  	BCF STATUS, RP1
+007B  1087  	BCF gbl_trisc,1
+007C  1283  	BCF STATUS, RP0
+007D  1087  	BCF gbl_portc,1
+007E  300C  	MOVLW 0x0C
+007F  009D  	MOVWF gbl_ccp2con
+0080  0008  	RETURN
+0081        ; } FC_CAL_PWM_Enable_Channel_2 function end
+
+	ORG 0x00000081
+0081        FC_CAL_PWM_00054
+0081        ; { FC_CAL_PWM_Change_Period_1 ; function begin
+0081  0848  	MOVF FC_CAL_PWM_00054_arg_period, W
+0082  1683  	BSF STATUS, RP0
+0083  0092  	MOVWF gbl_pr2
+0084  3001  	MOVLW 0x01
+0085  1283  	BCF STATUS, RP0
+0086  0649  	XORWF FC_CAL_PWM_00054_arg_prescaler, W
+0087  1903  	BTFSC STATUS,Z
+0088  084A  	MOVF FC_CAL_PWM_00054_arg_prescaler+D'1', W
+0089  1903  	BTFSC STATUS,Z
+008A  2898  	GOTO	label10
+008B  3004  	MOVLW 0x04
+008C  0649  	XORWF FC_CAL_PWM_00054_arg_prescaler, W
+008D  1903  	BTFSC STATUS,Z
+008E  084A  	MOVF FC_CAL_PWM_00054_arg_prescaler+D'1', W
+008F  1903  	BTFSC STATUS,Z
+0090  289B  	GOTO	label11
+0091  3010  	MOVLW 0x10
+0092  0649  	XORWF FC_CAL_PWM_00054_arg_prescaler, W
+0093  1903  	BTFSC STATUS,Z
+0094  084A  	MOVF FC_CAL_PWM_00054_arg_prescaler+D'1', W
+0095  1903  	BTFSC STATUS,Z
+0096  289E  	GOTO	label12
+0097  0008  	RETURN
+0098        label10
+0098  3004  	MOVLW 0x04
+0099  0092  	MOVWF gbl_t2con
+009A  0008  	RETURN
+009B        label11
+009B  3005  	MOVLW 0x05
+009C  0092  	MOVWF gbl_t2con
+009D  0008  	RETURN
+009E        label12
+009E  3006  	MOVLW 0x06
+009F  0092  	MOVWF gbl_t2con
+00A0  0008  	RETURN
+00A1        ; } FC_CAL_PWM_Change_Period_1 function end
+
+	ORG 0x000000A1
+00A1        FC_CAL_PWM_00053
+00A1        ; { FC_CAL_PWM_Set_Duty_8Bit_1 ; function begin
+00A1  0849  	MOVF FC_CAL_PWM_00053_arg_duty, W
+00A2  0095  	MOVWF gbl_ccpr1l
+00A3  0008  	RETURN
+00A4        ; } FC_CAL_PWM_Set_Duty_8Bit_1 function end
+
+	ORG 0x000000A4
+00A4        FC_CAL_PWM_00051
+00A4        ; { FC_CAL_PWM_Enable_Channel_1 ; function begin
+00A4  1683  	BSF STATUS, RP0
+00A5  1303  	BCF STATUS, RP1
+00A6  1107  	BCF gbl_trisc,2
+00A7  1283  	BCF STATUS, RP0
+00A8  1107  	BCF gbl_portc,2
+00A9  300C  	MOVLW 0x0C
+00AA  0097  	MOVWF gbl_ccp1con
+00AB  0008  	RETURN
+00AC        ; } FC_CAL_PWM_Enable_Channel_1 function end
+
+	ORG 0x000000AC
+00AC        FC_CAL_Ena_0005C
+00AC        ; { FC_CAL_Enable_ADC ; function begin
+00AC  0849  	MOVF FC_CAL_Ena_0005C_arg_Channel, W
+00AD  3A00  	XORLW 0x00
+00AE  1903  	BTFSC STATUS,Z
+00AF  28B4  	GOTO	label13
+00B0  3A01  	XORLW 0x01
+00B1  1903  	BTFSC STATUS,Z
+00B2  28C5  	GOTO	label15
+00B3  28D7  	GOTO	label17
+00B4        label13
+00B4  3001  	MOVLW 0x01
+00B5  00C7  	MOVWF gbl_tris_mask
+00B6  3000  	MOVLW HIGH(gbl_trisa+D'0')
+00B7  00BA  	MOVWF gbl_tris_reg+D'1'
+00B8  3085  	MOVLW LOW(gbl_trisa+D'0')
+00B9  00B9  	MOVWF gbl_tris_reg
+00BA  08CB  	MOVF FC_CAL_Ena_0005C_arg_Vref, F
+00BB  1D03  	BTFSS STATUS,Z
+00BC  28C1  	GOTO	label14
+00BD  300E  	MOVLW 0x0E
+00BE  1683  	BSF STATUS, RP0
+00BF  009F  	MOVWF gbl_adcon1
+00C0  28D7  	GOTO	label17
+00C1        label14
+00C1  3005  	MOVLW 0x05
+00C2  1683  	BSF STATUS, RP0
+00C3  009F  	MOVWF gbl_adcon1
+00C4  28D7  	GOTO	label17
+00C5        label15
+00C5  3002  	MOVLW 0x02
+00C6  00C7  	MOVWF gbl_tris_mask
+00C7  3000  	MOVLW HIGH(gbl_trisa+D'0')
+00C8  00CD  	MOVWF CompTempVar2204
+00C9  3085  	MOVLW LOW(gbl_trisa+D'0')
+00CA  00B9  	MOVWF gbl_tris_reg
+00CB  084D  	MOVF CompTempVar2204, W
+00CC  00BA  	MOVWF gbl_tris_reg+D'1'
+00CD  08CB  	MOVF FC_CAL_Ena_0005C_arg_Vref, F
+00CE  1D03  	BTFSS STATUS,Z
+00CF  28D4  	GOTO	label16
+00D0  3004  	MOVLW 0x04
+00D1  1683  	BSF STATUS, RP0
+00D2  009F  	MOVWF gbl_adcon1
+00D3  28D7  	GOTO	label17
+00D4        label16
+00D4  3005  	MOVLW 0x05
+00D5  1683  	BSF STATUS, RP0
+00D6  009F  	MOVWF gbl_adcon1
+00D7        label17
+00D7  1383  	BCF STATUS,IRP
+00D8  1283  	BCF STATUS, RP0
+00D9  183A  	BTFSC gbl_tris_reg+D'1',0
+00DA  1783  	BSF STATUS,IRP
+00DB  0839  	MOVF gbl_tris_reg, W
+00DC  0084  	MOVWF FSR
+00DD  0800  	MOVF INDF, W
+00DE  00C6  	MOVWF gbl_old_tris
+00DF  0847  	MOVF gbl_tris_mask, W
+00E0  0446  	IORWF gbl_old_tris, W
+00E1  00CD  	MOVWF CompTempVar2205
+00E2  0080  	MOVWF INDF
+00E3  084A  	MOVF FC_CAL_Ena_0005C_arg_Conv_Speed, W
+00E4  00CD  	MOVWF CompTempVar2206
+00E5  01CE  	CLRF CompTempVar2207
+00E6  0DCD  	RLF CompTempVar2206, F
+00E7  0DCE  	RLF CompTempVar2207, F
+00E8  0DCD  	RLF CompTempVar2206, F
+00E9  0DCE  	RLF CompTempVar2207, F
+00EA  0DCD  	RLF CompTempVar2206, F
+00EB  0DCE  	RLF CompTempVar2207, F
+00EC  0DCD  	RLF CompTempVar2206, F
+00ED  0DCE  	RLF CompTempVar2207, F
+00EE  0DCD  	RLF CompTempVar2206, F
+00EF  0DCE  	RLF CompTempVar2207, F
+00F0  0DCD  	RLF CompTempVar2206, F
+00F1  0DCE  	RLF CompTempVar2207, F
+00F2  30C0  	MOVLW 0xC0
+00F3  054D  	ANDWF CompTempVar2206, W
+00F4  3801  	IORLW 0x01
+00F5  00D0  	MOVWF CompTempVar2210
+00F6  0849  	MOVF FC_CAL_Ena_0005C_arg_Channel, W
+00F7  00CF  	MOVWF CompTempVar2209
+00F8  0DCF  	RLF CompTempVar2209, F
+00F9  0DCF  	RLF CompTempVar2209, F
+00FA  0DCF  	RLF CompTempVar2209, F
+00FB  30F8  	MOVLW 0xF8
+00FC  054F  	ANDWF CompTempVar2209, W
+00FD  0450  	IORWF CompTempVar2210, W
+00FE  009F  	MOVWF gbl_adcon0
+00FF  084C  	MOVF FC_CAL_Ena_0005C_arg_T_Charge, W
+0100  00CD  	MOVWF delay_us_00000_arg_del
+0101  2010  	CALL delay_us_00000
+0102  3004  	MOVLW 0x04
+0103  041F  	IORWF gbl_adcon0, W
+0104  009F  	MOVWF gbl_adcon0
+0105  0008  	RETURN
+0106        ; } FC_CAL_Enable_ADC function end
+
+	ORG 0x00000106
+0106        FC_CAL_Dis_0005E
+0106        ; { FC_CAL_Disable_ADC ; function begin
+0106  1383  	BCF STATUS,IRP
+0107  1283  	BCF STATUS, RP0
+0108  1303  	BCF STATUS, RP1
+0109  183A  	BTFSC gbl_tris_reg+D'1',0
+010A  1783  	BSF STATUS,IRP
+010B  0839  	MOVF gbl_tris_reg, W
+010C  0084  	MOVWF FSR
+010D  0846  	MOVF gbl_old_tris, W
+010E  0080  	MOVWF INDF
+010F  3007  	MOVLW 0x07
+0110  1683  	BSF STATUS, RP0
+0111  009F  	MOVWF gbl_adcon1
+0112  1283  	BCF STATUS, RP0
+0113  019F  	CLRF gbl_adcon0
+0114  0008  	RETURN
+0115        ; } FC_CAL_Disable_ADC function end
+
+	ORG 0x00000115
+0115        FCD_PWM1_S_00072
+0115        ; { FCD_PWM1_SetDutyCycle ; function begin
+0115  0848  	MOVF FCD_PWM1_S_00072_arg_nDuty, W
+0116  00C9  	MOVWF FC_CAL_PWM_0006D_arg_duty
+0117  2076  	CALL FC_CAL_PWM_0006D
+0118  0008  	RETURN
+0119        ; } FCD_PWM1_SetDutyCycle function end
+
+	ORG 0x00000119
+0119        FCD_PWM1_E_00070
+0119        ; { FCD_PWM1_Enable ; function begin
+0119  30FF  	MOVLW 0xFF
+011A  1283  	BCF STATUS, RP0
+011B  1303  	BCF STATUS, RP1
+011C  00C8  	MOVWF FC_CAL_PWM_0006E_arg_period
+011D  3001  	MOVLW 0x01
+011E  00C9  	MOVWF FC_CAL_PWM_0006E_arg_prescaler
+011F  01CA  	CLRF FC_CAL_PWM_0006E_arg_prescaler+D'1'
+0120  2056  	CALL FC_CAL_PWM_0006E
+0121  2079  	CALL FC_CAL_PWM_0006B
+0122  0008  	RETURN
+0123        ; } FCD_PWM1_Enable function end
+
+	ORG 0x00000123
+0123        FCD_PWM0_S_00058
+0123        ; { FCD_PWM0_SetDutyCycle ; function begin
+0123  0848  	MOVF FCD_PWM0_S_00058_arg_nDuty, W
+0124  00C9  	MOVWF FC_CAL_PWM_00053_arg_duty
+0125  20A1  	CALL FC_CAL_PWM_00053
+0126  0008  	RETURN
+0127        ; } FCD_PWM0_SetDutyCycle function end
+
+	ORG 0x00000127
+0127        FCD_PWM0_E_00056
+0127        ; { FCD_PWM0_Enable ; function begin
+0127  30FF  	MOVLW 0xFF
+0128  1283  	BCF STATUS, RP0
+0129  1303  	BCF STATUS, RP1
+012A  00C8  	MOVWF FC_CAL_PWM_00054_arg_period
+012B  3001  	MOVLW 0x01
+012C  00C9  	MOVWF FC_CAL_PWM_00054_arg_prescaler
+012D  01CA  	CLRF FC_CAL_PWM_00054_arg_prescaler+D'1'
+012E  2081  	CALL FC_CAL_PWM_00054
+012F  20A4  	CALL FC_CAL_PWM_00051
+0130  0008  	RETURN
+0131        ; } FCD_PWM0_Enable function end
+
+	ORG 0x00000131
+0131        FCD_ADC1_R_00077
+0131        ; { FCD_ADC1_ReadAsByte ; function begin
+0131  3001  	MOVLW 0x01
+0132  1283  	BCF STATUS, RP0
+0133  1303  	BCF STATUS, RP1
+0134  00C9  	MOVWF FC_CAL_Ena_0005C_arg_Channel
+0135  3003  	MOVLW 0x03
+0136  00CA  	MOVWF FC_CAL_Ena_0005C_arg_Conv_Speed
+0137  01CB  	CLRF FC_CAL_Ena_0005C_arg_Vref
+0138  3028  	MOVLW 0x28
+0139  00CC  	MOVWF FC_CAL_Ena_0005C_arg_T_Charge
+013A  20AC  	CALL FC_CAL_Ena_0005C
+013B  01C9  	CLRF FC_CAL_Sam_0005D_arg_Sample_Mode
+013C  2032  	CALL FC_CAL_Sam_0005D
+013D  084C  	MOVF CompTempVarRet2211, W
+013E  00C8  	MOVWF FCD_ADC1_R_00077_1_retVal
+013F  2106  	CALL FC_CAL_Dis_0005E
+0140  0848  	MOVF FCD_ADC1_R_00077_1_retVal, W
+0141  00C9  	MOVWF CompTempVarRet2254
+0142  0008  	RETURN
+0143        ; } FCD_ADC1_ReadAsByte function end
+
+	ORG 0x00000143
+0143        FCD_ADC0_R_00060
+0143        ; { FCD_ADC0_ReadAsByte ; function begin
+0143  1283  	BCF STATUS, RP0
+0144  1303  	BCF STATUS, RP1
+0145  01C9  	CLRF FC_CAL_Ena_0005C_arg_Channel
+0146  3003  	MOVLW 0x03
+0147  00CA  	MOVWF FC_CAL_Ena_0005C_arg_Conv_Speed
+0148  01CB  	CLRF FC_CAL_Ena_0005C_arg_Vref
+0149  3028  	MOVLW 0x28
+014A  00CC  	MOVWF FC_CAL_Ena_0005C_arg_T_Charge
+014B  20AC  	CALL FC_CAL_Ena_0005C
+014C  01C9  	CLRF FC_CAL_Sam_0005D_arg_Sample_Mode
+014D  2032  	CALL FC_CAL_Sam_0005D
+014E  084C  	MOVF CompTempVarRet2211, W
+014F  00C8  	MOVWF FCD_ADC0_R_00060_1_retVal
+0150  2106  	CALL FC_CAL_Dis_0005E
+0151  0848  	MOVF FCD_ADC0_R_00060_1_retVal, W
+0152  00C9  	MOVWF CompTempVarRet2217
+0153  0008  	RETURN
+0154        ; } FCD_ADC0_ReadAsByte function end
+
+	ORG 0x00000154
+0154        main
+0154        ; { main ; function begin
+0154  3007  	MOVLW 0x07
+0155  1683  	BSF STATUS, RP0
+0156  1303  	BCF STATUS, RP1
+0157  009F  	MOVWF gbl_adcon1
+0158  30C0  	MOVLW 0xC0
+0159  0081  	MOVWF gbl_option_reg
+015A  2127  	CALL FCD_PWM0_E_00056
+015B  2119  	CALL FCD_PWM1_E_00070
+015C  30FF  	MOVLW 0xFF
+015D  00C4  	MOVWF gbl_FCV_NAPON
+015E  01C5  	CLRF gbl_FCV_NAPONJEDAN
+015F        label18
+015F  2131  	CALL FCD_ADC1_R_00077
+0160  0849  	MOVF CompTempVarRet2254, W
+0161  00C5  	MOVWF gbl_FCV_NAPONJEDAN
+0162  0845  	MOVF gbl_FCV_NAPONJEDAN, W
+0163  00C8  	MOVWF FCD_PWM1_S_00072_arg_nDuty
+0164  2115  	CALL FCD_PWM1_S_00072
+0165  0844  	MOVF gbl_FCV_NAPON, W
+0166  00C8  	MOVWF FCD_PWM0_S_00058_arg_nDuty
+0167  2123  	CALL FCD_PWM0_S_00058
+0168  30FF  	MOVLW 0xFF
+0169  00C8  	MOVWF delay_ms_00000_arg_del
+016A  201A  	CALL delay_ms_00000
+016B  30F5  	MOVLW 0xF5
+016C  00C8  	MOVWF delay_ms_00000_arg_del
+016D  201A  	CALL delay_ms_00000
+016E  2143  	CALL FCD_ADC0_R_00060
+016F  0849  	MOVF CompTempVarRet2217, W
+0170  00C4  	MOVWF gbl_FCV_NAPON
+0171  295F  	GOTO	label18
+0172        ; } main function end
+
+	ORG 0x00000172
+0172        _startup
+0172  30D5  	MOVLW 0xD5
+0173  1283  	BCF STATUS, RP0
+0174  1303  	BCF STATUS, RP1
+0175  00A0  	MOVWF gbl_14_LSR
+0176  30C4  	MOVLW 0xC4
+0177  00A1  	MOVWF gbl_14_LSR+D'1'
+0178  30BB  	MOVLW 0xBB
+0179  00A2  	MOVWF gbl_14_LSR+D'2'
+017A  30DC  	MOVLW 0xDC
+017B  00A3  	MOVWF gbl_14_LSR+D'3'
+017C  01A4  	CLRF gbl_15_gbl_aSig
+017D  01A5  	CLRF gbl_15_gbl_aSig+D'1'
+017E  01A6  	CLRF gbl_15_gbl_aSig+D'2'
+017F  01A7  	CLRF gbl_15_gbl_aSig+D'3'
+0180  01A8  	CLRF gbl_15_gbl_bSig
+0181  01A9  	CLRF gbl_15_gbl_bSig+D'1'
+0182  01AA  	CLRF gbl_15_gbl_bSig+D'2'
+0183  01AB  	CLRF gbl_15_gbl_bSig+D'3'
+0184  01AC  	CLRF gbl_15_gbl_zSig
+0185  01AD  	CLRF gbl_15_gbl_zSig+D'1'
+0186  01AE  	CLRF gbl_15_gbl_zSig+D'2'
+0187  01AF  	CLRF gbl_15_gbl_zSig+D'3'
+0188  01BE  	CLRF gbl_15_gbl_aExp
+0189  01BF  	CLRF gbl_15_gbl_bExp
+018A  01B7  	CLRF gbl_15_gbl_zExp
+018B  01B8  	CLRF gbl_15_gbl_zExp+D'1'
+018C  01C0  	CLRF gbl_15_gbl_aSign
+018D  01C1  	CLRF gbl_15_gbl_bSign
+018E  01C2  	CLRF gbl_15_gbl_zSign
+018F  01C3  	CLRF gbl_15_gbl_zSigZero
+0190  01B0  	CLRF gbl_15_gbl_ret
+0191  01B1  	CLRF gbl_15_gbl_ret+D'1'
+0192  01B2  	CLRF gbl_15_gbl_ret+D'2'
+0193  01B3  	CLRF gbl_15_gbl_ret+D'3'
+0194  01BC  	CLRF gbl_float_rounding_mode
+0195  01BD  	CLRF gbl_float_exception_flags
+0196  01BB  	CLRF gbl_float_detect_tininess
+0197  118A  	BCF PCLATH,3
+0198  120A  	BCF PCLATH,4
+0199  2954  	GOTO	main
+	ORG 0x0000019A
+019A        interrupt
+019A        ; { interrupt ; function begin
+019A  1283  	BCF STATUS, RP0
+019B  1303  	BCF STATUS, RP1
+019C  0E36  	SWAPF Int1BContext+D'2', W
+019D  0084  	MOVWF FSR
+019E  0E35  	SWAPF Int1BContext+D'1', W
+019F  008A  	MOVWF PCLATH
+01A0  0E34  	SWAPF Int1BContext, W
+01A1  0083  	MOVWF STATUS
+01A2  0EFF  	SWAPF Int1Context, F
+01A3  0E7F  	SWAPF Int1Context, W
+01A4  0009  	RETFIE
+01A5        ; } interrupt function end
+
+	ORG 0x00002007
+2007  3F7A  	DW 0x3F7A

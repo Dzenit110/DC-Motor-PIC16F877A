@@ -1,0 +1,27 @@
+// SourceBoost Linker Function Resource Usage Dump
+
+#GLOBAL:"global",line = 0,ram = 41.0,rom = 0;
+FC_CAL_PWM_Enable_Channel_1(void):"C:\Program Files (x86)\Flowcode\v5\CAL\PIC\PIC_CAL_PWM.c",line = 64,ram = 0.0,rom = 8;
+FC_CAL_PWM_Set_Duty_8Bit_1(unsigned char):"C:\Program Files (x86)\Flowcode\v5\CAL\PIC\PIC_CAL_PWM.c",line = 331,ram = 0.0,rom = 3;
+FC_CAL_PWM_Change_Period_1(unsigned char,unsigned short):"C:\Program Files (x86)\Flowcode\v5\CAL\PIC\PIC_CAL_PWM.c",line = 375,ram = 0.0,rom = 32;
+FCD_PWM0_Enable(void):"E:\Skola\Mirkoracunari\Zadaci sa proslog casa Mikroracunari\PWM i dva potenciometra 500ms\PWM_potenciometri_ms.c",line = 543,ram = 0.0,rom = 10;
+FCD_PWM0_SetDutyCycle(unsigned char):"E:\Skola\Mirkoracunari\Zadaci sa proslog casa Mikroracunari\PWM i dva potenciometra 500ms\PWM_potenciometri_ms.c",line = 558,ram = 1.0,rom = 4;
+FC_CAL_Enable_ADC(unsigned char,unsigned char,unsigned char,unsigned char):"C:\Program Files (x86)\Flowcode\v5\CAL\PIC\PIC_CAL_ADC.c",line = 3930,ram = 8.0,rom = 90;
+FC_CAL_Sample_ADC(unsigned char):"C:\Program Files (x86)\Flowcode\v5\CAL\PIC\PIC_CAL_ADC.c",line = 4024,ram = 5.0,rom = 36;
+FC_CAL_Disable_ADC(void):"C:\Program Files (x86)\Flowcode\v5\CAL\PIC\PIC_CAL_ADC.c",line = 4040,ram = 0.0,rom = 15;
+FCD_ADC0_ReadAsByte(void):"E:\Skola\Mirkoracunari\Zadaci sa proslog casa Mikroracunari\PWM i dva potenciometra 500ms\PWM_potenciometri_ms.c",line = 594,ram = 2.0,rom = 17;
+FC_CAL_PWM_Enable_Channel_2(void):"C:\Program Files (x86)\Flowcode\v5\CAL\PIC\PIC_CAL_PWM.c",line = 84,ram = 0.0,rom = 8;
+FC_CAL_PWM_Set_Duty_8Bit_2(unsigned char):"C:\Program Files (x86)\Flowcode\v5\CAL\PIC\PIC_CAL_PWM.c",line = 335,ram = 0.0,rom = 3;
+FC_CAL_PWM_Change_Period_2(unsigned char,unsigned short):"C:\Program Files (x86)\Flowcode\v5\CAL\PIC\PIC_CAL_PWM.c",line = 375,ram = 0.0,rom = 32;
+FCD_PWM1_Enable(void):"E:\Skola\Mirkoracunari\Zadaci sa proslog casa Mikroracunari\PWM i dva potenciometra 500ms\PWM_potenciometri_ms.c",line = 741,ram = 0.0,rom = 10;
+FCD_PWM1_SetDutyCycle(unsigned char):"E:\Skola\Mirkoracunari\Zadaci sa proslog casa Mikroracunari\PWM i dva potenciometra 500ms\PWM_potenciometri_ms.c",line = 756,ram = 1.0,rom = 4;
+FCD_ADC1_ReadAsByte(void):"E:\Skola\Mirkoracunari\Zadaci sa proslog casa Mikroracunari\PWM i dva potenciometra 500ms\PWM_potenciometri_ms.c",line = 792,ram = 2.0,rom = 18;
+main(void):"E:\Skola\Mirkoracunari\Zadaci sa proslog casa Mikroracunari\PWM i dva potenciometra 500ms\PWM_potenciometri_ms.c",line = 941,ram = 0.0,rom = 30;
+interrupt(void):"E:\Skola\Mirkoracunari\Zadaci sa proslog casa Mikroracunari\PWM i dva potenciometra 500ms\PWM_potenciometri_ms.c",line = 1004,ram = 0.0,rom = 11;
+delay_us(unsigned char):"NoSourceFile",line = 0,ram = 0.0,rom = 10;
+delay_ms(unsigned char):"NoSourceFile",line = 0,ram = 0.0,rom = 24;
+_startup(void):"NoSourceFile",line = 0,ram = 0.0,rom = 40;
+#HEAP_BLOCK: 0, 272, 111;
+#HEAP_BLOCK: 1, 400, 96;
+#HEAP_BLOCK: 2, 160, 80;
+#HEAP_BLOCK: 3, 81, 31;
