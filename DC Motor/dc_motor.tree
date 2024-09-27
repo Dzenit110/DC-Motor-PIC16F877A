@@ -1,0 +1,6 @@
+// SourceBoost Linker Call Tree Dump
+
+_startup:"NoSourceFile",line = 0
+{  main:"E:\Skola\Mirkoracunari\DC motor\dc_motor.c",line = 120
+  {  }}interrupt:"E:\Skola\Mirkoracunari\DC motor\dc_motor.c",line = 283
+{}

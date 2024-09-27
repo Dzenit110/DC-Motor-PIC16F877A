@@ -1,0 +1,10 @@
+// SourceBoost Linker Function Resource Usage Dump
+
+#GLOBAL:"global",line = 0,ram = 41.0,rom = 0;
+main(void):"E:\Skola\Mirkoracunari\DC motor\dc_motor.c",line = 123,ram = 6.0,rom = 214;
+interrupt(void):"E:\Skola\Mirkoracunari\DC motor\dc_motor.c",line = 285,ram = 0.0,rom = 11;
+_startup(void):"NoSourceFile",line = 0,ram = 0.0,rom = 40;
+#HEAP_BLOCK: 0, 272, 111;
+#HEAP_BLOCK: 1, 400, 96;
+#HEAP_BLOCK: 2, 160, 80;
+#HEAP_BLOCK: 3, 78, 34;
