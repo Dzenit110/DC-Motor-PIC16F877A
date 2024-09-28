@@ -137,7 +137,7 @@ We control the intensity of an LED light using PWM (Pulse Width Modulation) and 
 ## 🧰 Languages & Tools 
 
 <div style="display: inline;">
-    <img src="https://skillicons.dev/icons?i=cpp"style="margin-right: 10px;" />
+    <img src="https://skillicons.dev/icons?i=c"style="margin-right: 10px;" />
     <img src="https://github.com/user-attachments/assets/cf1d8532-3d73-4eed-9139-c02b9aa10ddb" width="65" height="65" &nbsp; &nbsp;/>
     <img src="https://github.com/user-attachments/assets/906cc158-0e38-420f-b0b4-64fc227677e7" width="65" height="65" &nbsp; &nbsp;/>
 
